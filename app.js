@@ -29,8 +29,6 @@
       const temp = array[i];
       array[i] = array[j];
       array[j] = temp;
-    
-      // Highlight the bars being swapped
       const bars = document.querySelectorAll(".bar");
       bars[i].classList.add(HIGHLIGHT_CLASS);
       bars[j].classList.add(HIGHLIGHT_CLASS);
@@ -91,8 +89,6 @@
       }
     
       await swap(pivotIndex, end);
-    
-      // Remove the highlight after the partition is complete
       removeHighlight();
       
       return pivotIndex;

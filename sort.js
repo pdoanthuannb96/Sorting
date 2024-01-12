@@ -85,17 +85,17 @@ function up(des,i) {
     }
     //300
     setTimeout(() => {
-        let xx = rectI.top - 232;
+        let xx = rectI.top - 231.5;
         console.log("xx :" + xx );
         animateFrame();
         function animateFrame() {
             if (xx == 0) {
-                elementI.style.backgroundColor = '#999900';
+                // elementI.style.backgroundColor = '#999900';
             } else {
                 xx -= 4;
                 elementI.style.position = "relative";
                 elementI.style.top = xx + 'px';
-                elementI.style.backgroundColor = '#b30000';
+                // elementI.style.backgroundColor = '#b30000';
                 setTimeout(animateFrame, delaySorting); 
             }
         }
@@ -118,20 +118,28 @@ function up(des,i) {
     }, 400);
 }
 
-function downSubArray(i,j) {
+function downSubArray(i,mid,j) {
     for(let k = i; k < j; k++) {
+        let color;
+        if(k <= mid) {
+            console.log("left");
+            color = "#b30000";
+        } else if (k > mid) {
+            console.log("right");
+            color = "#009900";
+        }
         let targetElement = document.querySelector(`.bar[data-index="${k}"]`);
         setTimeout(() => {
             let x = 0;
             animateFrame();
             function animateFrame() {
                 if (x == 300) {
-                    targetElement.style.backgroundColor = '#5500ff';
+                    // targetElement.style.backgroundColor = '#5500ff';
                 } else {
                     x += 4;
                     targetElement.style.position = "relative";
                     targetElement.style.top = x + 'px';
-                    targetElement.style.backgroundColor = '#b30000';
+                    targetElement.style.backgroundColor = color;
                     setTimeout(animateFrame, delaySorting);
                 }
             }
@@ -192,34 +200,34 @@ function insertionSort() {
 }
 
 function mergeSort() {
-        genMergeSortSolution();
-    const function1 = () => {
-        const currentStepX = mergeSteps[currentIndex];
+    //     genMergeSortSolution();
+    // const function1 = () => {
+    //     const currentStepX = mergeSteps[currentIndex];
 
-        if(currentIndex < mergeSolution.length && !isPaused) {
-            if(currentIndex > 0) {
-                createMergeColor(mergeSolution[currentIndex - 1],currentStepX.left1,currentStepX.left2,currentStepX.right2);
-            }
-        }
-        currentIndex++;    
-        setTimeout(function1, 120 * delaySorting);
-    };
+    //     if(currentIndex < mergeSolution.length && !isPaused) {
+    //         if(currentIndex > 0) {
+    //             createMergeColor(mergeSolution[currentIndex - 1],currentStepX.left1,currentStepX.left2,currentStepX.right2);
+    //         }
+    //     }
+    //     currentIndex++;    
+    //     setTimeout(function1, 120 * delaySorting);
+    // };
 
-    const function2 = () => {
-        const currentStep = mergeSteps[currentStepIndex];
-        const currentArrayX = mergeSolution[currentStepIndex];
+    // const function2 = () => {
+    //     const currentStep = mergeSteps[currentStepIndex];
+    //     const currentArrayX = mergeSolution[currentStepIndex];
 
-        if(currentStepIndex < mergeSteps.length && !isPaused) {
-            createMergedBars(currentArrayX,currentStep.left1,currentStep.right2);
-        }
-        currentStepIndex++;
-        setTimeout(function2, 120 * delaySorting);
-    };
+    //     if(currentStepIndex < mergeSteps.length && !isPaused) {
+    //         createMergedBars(currentArrayX,currentStep.left1,currentStep.right2);
+    //     }
+    //     currentStepIndex++;
+    //     setTimeout(function2, 120 * delaySorting);
+    // };
 
-    timer = setTimeout(function1, 0);
-    stepTimer = setTimeout(function2, 60 * delaySorting);
+    // timer = setTimeout(function1, 0);
+    // stepTimer = setTimeout(function2, 60 * delaySorting);
     // 
-    //test();
+    test();
 }
 
 function quickSort() {
@@ -266,7 +274,7 @@ function test() {
     console.log(mergeSteps[0].left1);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[0].left1,mergeSteps[0].right2 + 1);
+        downSubArray(mergeSteps[0].left1,mergeSteps[0].left2,mergeSteps[0].right2 + 1);
     },1000*1);
 
     setTimeout(() => {
@@ -282,7 +290,7 @@ function test() {
     },1000*4);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[1].left1,mergeSteps[1].right2 + 1);
+        downSubArray(mergeSteps[1].left1,mergeSteps[1].left2,mergeSteps[1].right2 + 1);
     },1000*5);
 
     setTimeout(() => {
@@ -302,7 +310,7 @@ function test() {
     },1000*9);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[2].left1,mergeSteps[2].right2 + 1);
+        downSubArray(mergeSteps[2].left1,mergeSteps[2].left2,mergeSteps[2].right2 + 1);
     },1000*10);
 
     setTimeout(() => {
@@ -318,7 +326,7 @@ function test() {
     },1000*13);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[3].left1,mergeSteps[3].right2 + 1);
+        downSubArray(mergeSteps[3].left1,mergeSteps[3].left2,mergeSteps[3].right2 + 1);
     },1000*14);
 
     setTimeout(() => {
@@ -339,7 +347,7 @@ function test() {
     },1000*18);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[4].left1,mergeSteps[4].right2 + 1);
+        downSubArray(mergeSteps[4].left1,mergeSteps[4].left2,mergeSteps[4].right2 + 1);
     },1000*19);
 
     setTimeout(() => {
@@ -372,7 +380,7 @@ function test() {
     },1000*26);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[5].left1,mergeSteps[5].right2 + 1);
+        downSubArray(mergeSteps[5].left1,mergeSteps[5].left2,mergeSteps[5].right2 + 1);
     },1000*27);
 
     setTimeout(() => {
@@ -389,7 +397,7 @@ function test() {
     },1000*30);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[6].left1,mergeSteps[6].right2 + 1);
+        downSubArray(mergeSteps[6].left1,mergeSteps[6].left2,mergeSteps[6].right2 + 1);
     },1000*31);
 
     setTimeout(() => {
@@ -410,7 +418,7 @@ function test() {
     },1000*35);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[7].left1,mergeSteps[7].right2 + 1);
+        downSubArray(mergeSteps[7].left1,mergeSteps[7].left2,mergeSteps[7].right2 + 1);
     },1000*36);
 
     setTimeout(() => {
@@ -427,7 +435,7 @@ function test() {
     },1000*39);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[8].left1,mergeSteps[8].right2 + 1);
+        downSubArray(mergeSteps[8].left1,mergeSteps[8].left2,mergeSteps[8].right2 + 1);
     },1000*40);
 
     setTimeout(() => {
@@ -456,7 +464,7 @@ function test() {
     },1000*46);
 
     setTimeout(() => {
-        downSubArray(mergeSteps[9].left1,mergeSteps[9].right2 + 1);
+        downSubArray(mergeSteps[9].left1,mergeSteps[9].left2,mergeSteps[9].right2 + 1);
     },1000*47);
 
     setTimeout(() => {

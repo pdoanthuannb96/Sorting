@@ -106,12 +106,12 @@ function up(des,i) {
         animateFrame();
         function animateFrame() {
             if (xxx == x) {
-                elementI.style.backgroundColor = '#999900';
+                //elementI.style.backgroundColor = '#999900';
             } else {
                 xxx += frame;
                 elementI.style.position = "relative";
                 elementI.style.left = xxx + 'px';
-                elementI.style.backgroundColor = '#b30000';
+                //elementI.style.backgroundColor = '#b30000';
                 setTimeout(animateFrame, delaySorting);
             }
         }

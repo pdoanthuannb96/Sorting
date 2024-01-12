@@ -1,0 +1,74 @@
+#header {
+    cursor: pointer;
+    font-size: 5em;
+    text-align: left;
+    text-align: center;
+    padding-top: 30px;
+}
+
+body {
+    font-family: 'Oxygen', monospace, Courier;
+}
+
+#first-header, #second-header {
+    font-family: 'Oxygen', monospace, Courier;
+    display: block;
+    
+    display: inline-block;
+}
+
+#slider-container {
+    margin-top: 20px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+#elementCount-container {
+    margin-top: 20px;
+    /* margin-left: 100px; */
+    display: inline-block;
+}
+
+#sortingAlgorithm, #startSorting, #pauseSorting {
+    margin-top: 20px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+#mySlider {
+    width: 166px;
+}
+
+
+.footer {
+    font-size: 2em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 50px;
+    display: inline-block;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    margin-top: 100px;
+    margin-bottom: 500px;
+    height: 600px;
+}
+  
+.bar {
+    margin: 0 2px;
+    background-color: #5500ff;
+}
+
+.footerButton {
+    padding: 5px;
+    /* Add other styles as needed */
+}

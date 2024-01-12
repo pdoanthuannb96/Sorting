@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Project</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="main.css">
-  <script src="app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js"></script>
+    <script src="./object.js"></script>
+    <script src="./sort.js"></script>
 </head>
-<body>
-  <label for="elementCount">Number of Elements:</label>
-  <div class="input-container">
-    <input type="number" id="elementCount" value="20" min="1">
-    <button onclick="generateBars()">Generate Bars</button>
-  </div>
-  <button onclick="startSorting('quickSort')">Quick Sort</button>
-  <button onclick="startSorting('mergeSort')">Merge Sort</button>
-  <button onclick="startSorting('bubbleSort')">Bubble Sort</button>
-  <button onclick="startSorting('selectionSort')">Selection Sort</button>
-  <button onclick="randomizePositions()">Randomize Positions</button>
-  <div id="container"></div>
+<body onload="onLoad()">
+    <div id="header">
+        <span id="first-header">SORT</span>
+        <span id="second-header">VISUALIZER</span>
+    </div>
+
+    <div id="container"></div>
+
+    <div class="footer">
+        <div id="elementCount-container">
+            <label for="elementCount">Element :</label>
+            <input type="range" id="elementCount" value="11" min="5" max="20" oninput="saveElement(0)">
+        </div>
+
+        <div id="slider-container">
+            <label for="mySlider">Speed :</label>
+            <input type="range" min="300" max="1000" step="10" value="300" id="mySlider" oninput="saveSpeed()">
+        </div>
+
+        <div id="sortingAlgorithm">
+            <label for="sortingAlgorithm">Select Algorithm:</label>
+            <select class="footerButton" id="sortingAlgorithmSelection">
+                <option value="bubbleSort">Bubble Sort</option>
+                <option value="mergeSort">Merge Sort</option>
+                <option value="quickSort">Quick Sort</option>
+                <option value="selectionSort">Selection Sort</option>
+                <option value="insertionSort">Insertion Sort</option>
+            </select>
+        
+            <button class="footerButton" id="startSorting" onclick="startSorting(document.getElementById('sortingAlgorithmSelection').value)">
+                Start / Resume
+            </button>
+            <button class="footerButton" id="pauseSorting" onclick="pause()">
+                  Pause  
+            </button>
+            <button class="footerButton" id="startSorting" onclick="test()">
+                TEST
+            </button>
+            <!-- <button class="footerButton" id="startSorting" onclick="testX()">
+                TEST
+            </button> -->
+        </div>
+    </div>
+
+<script src="./script.js"></script>
+
 </body>
 </html>
